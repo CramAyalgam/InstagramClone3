@@ -2,11 +2,12 @@ package com.example.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -17,6 +18,9 @@ public class SignUp extends AppCompatActivity {
 
     private EditText edtName,edtPunchPower,edtPunchSpeed,edtKickSpeed,edtKickPower;
     private Button btnSave;
+    private TextView txtNextPage;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,16 @@ public class SignUp extends AppCompatActivity {
         edtPunchSpeed = findViewById(R.id.edt_signup_punchspeed);
         edtPunchPower = findViewById(R.id.edt_signup_punchpower);
         btnSave = findViewById(R.id.btnSave);
+        txtNextPage = findViewById(R.id.txtNextPage);
+
+        txtNextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            startActivity(new Intent(SignUp.this, KickBoxers.class));
+
+            }
+        });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
